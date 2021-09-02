@@ -25,11 +25,9 @@ class DevisController extends Controller
 
     public function delete($id)
     {
-      $deleteDevis = Devis::find($id);
-
-      $deleteDevis->delete(); 
+      $file_db = $file_db->where('id',$id)->find($id);
       
-      return redirect('devis')->with('message','Votre devis à bien été supprimer!');
+      return redirect('devis')->with('succes','Votre devis à bien été supprimer!');
       
     }
 }

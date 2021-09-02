@@ -29,7 +29,7 @@ class DevisController extends Controller
 
       $deleteDevis->delete(); 
       
-      return redirect('devis')->with('message','Votre devis à bien été supprimer!');
+      return redirect('devis')->with('succes','Votre devis à bien été supprimer!');
       
     }
 }

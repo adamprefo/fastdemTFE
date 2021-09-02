@@ -17,19 +17,16 @@ class DevisController extends Controller
     {
         
       return view('devis.index')->with([
-        
+          $data =
           'devis' => Devis::all(),
           'packs' => Packs::all(),
       ]);
     }
 
-    public function delete($id)
+    public function delete()
     {
-      $deleteDevis = Devis::find($id);
 
-      $deleteDevis->delete(); 
-      
-      return redirect('devis')->with('message','Votre devis à bien été supprimer!');
-      
+      $data=members
+
     }
 }

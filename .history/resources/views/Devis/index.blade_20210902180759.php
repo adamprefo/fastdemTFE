@@ -7,7 +7,7 @@
             {{ __('Devis') }}
         </h2>
     </x-slot>
-    
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -19,24 +19,23 @@
                                     <table class="min-w-full divide-y divide-gray-200">
                                         <thead class="bg-gray-50">
                                             <tr>
-                                            <x-success-message/>
-                                            <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                  N°
-                                                  </th>
-                                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Adresse de départ
                                                 </th>
-                                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Adresse d'arrivée
                                                 </th>
 
-                                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Prix du devis
                                                 </th>
-                                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Options
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    numéro du packs choisis
                                                 </th>
-                                              
+                                                <th scope="col" class="relative px-6 py-3">
+                                                    <span class="sr-only">Edit</span>
+                                                </th>
                                             </tr>
 
                                         </thead>
@@ -46,43 +45,36 @@
                                             @if(isset(Auth::user()->id) && Auth::user()->id == $devi->user_id && $devi->packs_id == $pack->id)
 
                                             <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                                    {{ $devi->id }}
-                                                </td>
-
-                                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     {{ $devi->startAddress }}
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                                <td class="px-6 py-4 whitespace-nowrap text-alignleft text-sm font-medium">
                                                     {{ $devi->finishAddress }}
                                                 </td>
-                                                <div class="text-center">
-                                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                                    {{ $devi->price }} €
+                                                <td class="px-6 py-4 whitespace-nowrap text-alignleft text-sm font-medium">
+                                                    {{ $devi->price }}
                                                 </td>
-                                                </div>
-                                                
-                                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                                <td class="px-6 py-4 whitespace-nowrap text-alignright text-sm font-medium">
                                                     <!-- Button trigger modal -->
-                                                    <div class="text-center">
-                                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                                         </svg>
                                                     </button>
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
+                                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
                                                             <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
                                                             <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
                                                         </svg>
                                                     </button>
-                                                    
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="window.location.href='/delete/{{ $devi->id }}'">
+
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
                                                         </svg>
 
                                                     </button>
+
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">

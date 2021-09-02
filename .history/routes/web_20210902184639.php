@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DevisController;
 use App\Http\Controllers\MilesController;
 
 
@@ -34,7 +33,7 @@ Route::group(['middleware' => 'auth'], function(){
         ->name('profile.update');
 
     Route::resource('devis', \App\Http\Controllers\DevisController::class,);
-    Route::get('/delete/{id}',[DevisController::class,'delete']);
+    Route::get('delete',[DevisController::class,'delete']);
 
 });
 

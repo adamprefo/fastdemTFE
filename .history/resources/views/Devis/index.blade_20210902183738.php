@@ -7,7 +7,7 @@
             {{ __('Devis') }}
         </h2>
     </x-slot>
-    
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -19,10 +19,10 @@
                                     <table class="min-w-full divide-y divide-gray-200">
                                         <thead class="bg-gray-50">
                                             <tr>
-                                            <x-success-message/>
                                             <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                  N°
-                                                  </th>
+                                                    Adresse de départ
+                                                </th>
+
                                                 <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Adresse de départ
                                                 </th>
@@ -34,9 +34,11 @@
                                                     Prix du devis
                                                 </th>
                                                 <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Options
+                                                    numéro du packs choisis
                                                 </th>
-                                              
+                                                <th scope="col" class="relative px-6 py-3">
+                                                    <span class="sr-only">Edit</span>
+                                                </th>
                                             </tr>
 
                                         </thead>
@@ -46,10 +48,6 @@
                                             @if(isset(Auth::user()->id) && Auth::user()->id == $devi->user_id && $devi->packs_id == $pack->id)
 
                                             <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                                    {{ $devi->id }}
-                                                </td>
-
                                                 <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
                                                     {{ $devi->startAddress }}
                                                 </td>
@@ -77,12 +75,14 @@
                                                         </svg>
                                                     </button>
                                                     
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="window.location.href='/delete/{{ $devi->id }}'">
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
                                                         </svg>
 
                                                     </button>
+                                                    </div>
+
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">

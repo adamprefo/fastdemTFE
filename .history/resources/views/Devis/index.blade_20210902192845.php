@@ -34,7 +34,7 @@
                                                     Prix du devis
                                                 </th>
                                                 <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Options
+                                                    numéro du packs choisis
                                                 </th>
                                               
                                             </tr>
@@ -83,6 +83,9 @@
                                                         </svg>
 
                                                     </button>
+                                                    <a href="/delete/{{ $devi->id }}">supprimer</a>
+                                                    </div>
+                                                
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">

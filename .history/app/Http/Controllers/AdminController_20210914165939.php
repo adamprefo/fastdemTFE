@@ -8,7 +8,6 @@ use App\Models\Truck;
 use App\Mail\MailDelete;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
-use App\Charts\MonthlyUsersChart;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -47,10 +46,12 @@ class adminController extends Controller
 
 
 
-  public function chart(MonthlyUsersChart $chart)
+  public function payer()
   {
-      return view('admin.chart', ['chart' => $chart->build()]);
-   
+    public function index(MonthlyUsersChart $chart)
+    {
+        return view('users.index', ['chart' => $chart->build()]);
+    } 
   }
 
   public function camion()

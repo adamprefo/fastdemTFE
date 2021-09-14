@@ -47,9 +47,9 @@ class adminController extends Controller
 
 
 
-  public function chart(MonthlyUsersChart $chart)
+  public function payer(MonthlyUsersChart $chart)
   {
-      return view('admin.chart', ['chart' => $chart->build()]);
+      return view('users.index', ['chart' => $chart->build()]);
    
   }
 

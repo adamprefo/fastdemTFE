@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
        
         {
-            Reservation::factory()->times(50)->create();
+            Reservation::factory()->times(100)->create();
         }
     }
 }

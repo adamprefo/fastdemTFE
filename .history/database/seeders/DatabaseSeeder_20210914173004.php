@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Reservation;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
        
         {
-            Reservation::factory()->times(50)->create();
+            \App\Models\Reservation::factory()->times(100)->create();
         }
     }
 }

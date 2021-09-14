@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePacksTable extends Migration
+class CreateTrucksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreatePacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('packs', function (Blueprint $table) {
+        Schema::create('trucks', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->enum('size_truck', ['Medium', 'Large']);
-            $table->enum('nb_workers', ['2', '4']);
-            $table->enum('time_workers', ['2', '4', '6']);
-            $table->decimal('price', $precision = 8, $scale = 2);
+            $table->enum('size', ['Medium', 'Large']);
         });
     }
 
@@ -30,6 +26,6 @@ class CreatePacksTable extends Migration
      */
     public function down()
     {
-       
+        Schema::dropIfExists('trucks');
     }
 }

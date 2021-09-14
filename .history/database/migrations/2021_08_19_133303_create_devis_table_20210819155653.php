@@ -16,12 +16,9 @@ class CreateDevisTable extends Migration
         Schema::create('devis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('startAddress');
-            $table->string('finishAddress');
-            $table->date('startDate');
-            $table->time('starTime');
+            $table->text('start_address');
+            $table->text('finish_address');
             $table->decimal('price', $precision = 8, $scale = 2);
-            $table->enum('status', ['attente', 'payer']);
                    
                         
             $table->foreign('user_id')

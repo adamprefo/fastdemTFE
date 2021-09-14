@@ -23,7 +23,7 @@
                         {{ __('Utilisateur') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.chart')" :active="request()->routeIs('admin.chart')">
-                        {{ __('Graphique société ') }}
+                        {{ __('Devis Payer ') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.camion')" :active="request()->routeIs('admin.camion')">
                         {{ __('Camion ') }}

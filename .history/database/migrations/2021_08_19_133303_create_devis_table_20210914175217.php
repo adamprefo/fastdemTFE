@@ -18,10 +18,7 @@ class CreateDevisTable extends Migration
             $table->foreignId('user_id');
             $table->string('startAddress');
             $table->string('finishAddress');
-            $table->date('startDate');
-            $table->time('starTime');
             $table->decimal('price', $precision = 8, $scale = 2);
-            $table->enum('status', ['attente', 'payer']);
                    
                         
             $table->foreign('user_id')

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrucksTable extends Migration
+class UpdateUserTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTrucksTable extends Migration
      */
     public function up()
     {
-        Schema::create('trucks', function (Blueprint $table) {
-            $table->id();
-            $table->enum('size', ['Medium', 'Large']);
-            $table->unsignedTinyInteger('mCarrer');
+        Schema::table('users', function (Blueprint $table) {
+
+               $table->dropColumn(['trial_ends_at', 'pm_last_four', 'pm_type','	stripe_id Index']);
+
         });
     }
 
@@ -27,6 +27,6 @@ class CreateTrucksTable extends Migration
      */
     public function down()
     {
-       
+        //
     }
 }

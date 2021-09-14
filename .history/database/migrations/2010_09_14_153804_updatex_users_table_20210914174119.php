@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrucksTable extends Migration
+class UpdatexUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTrucksTable extends Migration
      */
     public function up()
     {
-        Schema::create('trucks', function (Blueprint $table) {
-            $table->id();
-            $table->enum('size', ['Medium', 'Large']);
-            $table->unsignedTinyInteger('mCarrer');
+        Schema::table('users', function (Blueprint $table) {
+            
+            $table->text('remember_token')->NULL;
+
+
         });
     }
 
@@ -27,6 +28,6 @@ class CreateTrucksTable extends Migration
      */
     public function down()
     {
-       
+        //
     }
 }

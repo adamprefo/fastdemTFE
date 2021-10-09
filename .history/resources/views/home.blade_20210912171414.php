@@ -84,7 +84,7 @@
                                                 <li><a href="{{ route('home') }}">Home</a></li>
                                                 <li><a href="{{ route('about') }}">About</a></li>
                                                 <li><a href="{{ route('services') }}">Services</a></li>
-                                                <li><a href="">Packs de prix</a>
+                                                <li class="text-white" >Packs de prix</a>
                                                     <ul class="submenu">
                                                         <li><a href="{{ route('packs') }}">Nos packs</a></li>
                                                         <li><a href="{{ route('packsPromo') }}">Packs en promotion</a></li>

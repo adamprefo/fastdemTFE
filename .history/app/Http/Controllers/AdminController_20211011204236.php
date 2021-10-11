@@ -7,7 +7,6 @@ use App\Models\Devis;
 use App\Models\Packs;
 use App\Models\Truck;
 use App\Mail\MailDelete;
-use App\Charts\packChart;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Charts\MonthlyUsersChart;
@@ -56,9 +55,9 @@ class adminController extends Controller
    
   }
 
-  public function chartd(packChart $chart)
+  public function index(packChart $chart)
 {
-    return view('admin.charts', ['chart' => $chart->build()]);
+    return view('users.index', ['chart' => $chart->build()]);
 } 
 
   public function camion()

@@ -16,13 +16,15 @@ class MonthlyUsersChart
     public function build()
     {
         return $this->chart->lineChart()
-        ->setTitle('Reservatons des 6 derniers mois.')
-        ->setSubtitle('Reservation et Les packs choisis.')
+        ->setTitle('Reservaton pour 2021.')
+        ->setSubtitle('Reservation vs Les packs choisis.')
         ->addData('Reservation', [40, 93, 35, 42, 18, 82])
+        ->addData('Economique', [70, 29, 77, 28, 55, 45])
+        ->addData('Standard', [30, 27, 80, 10, 0, 60])
+        ->addData('VIP', [70, 29, 77, 28, 55, 45])
         ->setXAxis(['Jan', 'Fev', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil', 'Août','Sept','Nov','Oct','Dec'])
-        ->setColors(['#ff5c14', '#0a1b2f','#4CB8DE','#E51330']);
+        ->setColors(['#ff5c14', '#0a1b2f']);
         
     
     }
-    
 }

@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <img src="assets/img/logo/logoback.png">
+                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
 
@@ -25,7 +25,7 @@
                     <x-nav-link :href="route('admin.chart')" :active="request()->routeIs('admin.chart')">
                         {{ __('Graphique reservation') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.charts')" :active="request()->routeIs('admin.charts')">
+                    <x-nav-link :href="route('admin.chartd')" :active="request()->routeIs('admin.charts')">
                         {{ __(' Graphique pack ') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.camion')" :active="request()->routeIs('admin.camion')">

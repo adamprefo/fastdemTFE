@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     //admin
     Route::get('admin/chart',[AdminController::class,'chart'])->name('admin.chart');
-    Route::get('admin/charts',[AdminController::class,'chartd'])->name('admin.charts');
+    Route::get('admin/chartd',[AdminController::class,'chartd'])->name('admin.chart');
     Route::get('admin/user',[AdminController::class,'user'])->name('admin.user');
     Route::get('deleteUser/{id}',[AdminController::class,'deleteUser']);
     Route::get('admin/camion',[AdminController::class,'camion'])->name('admin.camion');

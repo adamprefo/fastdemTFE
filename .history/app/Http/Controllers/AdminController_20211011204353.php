@@ -58,7 +58,7 @@ class adminController extends Controller
 
   public function chartd(packChart $chart)
 {
-    return view('admin.charts', ['chart' => $chart->build()]);
+    return view('admin.chart', ['chart' => $chart->build()]);
 } 
 
   public function camion()

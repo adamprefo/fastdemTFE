@@ -160,15 +160,19 @@
                                                             </div>
                                                             <br></br>
 
+                                                           
                                                             <div class="form-group">
                                                                 <h5 for="packs_id">Selectionnée votre packs de prix</h5>
+                                                                
                                                                 <select name="packs_id" id="packs_id">
                                                                     <option value="1">Economique</option>
                                                                     <option value="2">Standard</option>
                                                                     <option value="3">V.I.P</option>
                                                                 </select>
                                                             </div>
+                                                            <a href="{{ route('packs') }}"><small><p  class="text-primary sm">Nos packs?</small></p></a>
                                                             <div class="modal-footer">
+                                                                
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                 <button type="submit" class="btn btn-primary">Mon devis!</button>
                                                         </form>

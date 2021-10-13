@@ -4,21 +4,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-   
+    @foreach ($devis as $devi)
+    @foreach ($packs as $pack)
     @if(isset(Auth::user()->id) && Auth::user()->id == $devi->user_id && $devi->packs_id == $pack->id)
 
     <title>Devis n°{{$client->id}}</title>
     @endif
+    @endforeach
+    @endforeach
 
     <!-- Favicon -->
-    <link rel="icon" href="/img/camion.jpg" type="image/x-icon" />
+    <img src="{{URL::asset('assets/img/logo/logoback.png')}}">
 
 
 </head>
 
 <body>
+
+<h4>Bonjour <span style="font-weight:bolder">{{$user->name}} {{$user->lastname}}</span>,</h4>  Nous confirmons que nous avons bien reçu votre paiement sécurisé en ligne. 
+<h4>Voici une copie détaillée de votre facture.</h4>
+<h5> Merci de faire confiance à <span style="font-weight:bolder"> Fastdem. </span></h5>
+
     <h1>Votre devis complet</h1>
-    <h3>Because sometimes, all you need is something simple.</h3>
 
 
     <div class="invoice-box">
@@ -28,7 +35,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="/img/logo.png" alt="Company logo" style="width: 100%; max-width: 200px" />
+                            <img src="{{URL::asset('assets/img/logo/logoback.png')}}">
                             </td>
 
                             <td>

@@ -49,9 +49,9 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>
-                                        <li>Phone: +99 (0) 101 0000 888</li>
+                                        <li>Phone: 02.655.45.55</li>
 
-                                        <li>Email: noreply@yourdomain.com</li>
+                                        <li>Email: fastdeminfo@gmail.com</li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
@@ -85,10 +85,11 @@
                                                 <li><a href="{{ route('about') }}">About</a></li>
                                                 <li><a href="{{ route('services') }}">Services</a></li>
                                                 <li class="text-white" >Packs de prix</a>
+                                                
                                                     <ul class="submenu">
                                                         <li><a href="{{ route('packs') }}">Nos packs</a></li>
+                                                         
                                                         <li><a href="{{ route('packsPromo') }}">Packs en promotion</a></li>
-                                                        <li><a href="elements.html">Element</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="{{ route('contact') }}">Contact</a></li>
@@ -105,112 +106,137 @@
                                         @endif
                                         @else
                                         <a href="{{ route('login') }}" class="btn header-btn">{{ Auth::user()->name }}</a>
-                                         <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                    Devis
-                                </button>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                            Devis
+                                        </button>
 
-                                <!-- début du Modal -->
+                                        <!-- début du Modal -->
 
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                                <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyCAb1UA5bvaHAPMhM-B1jAGeh0z5AiD27g" type="text/javascript"></script>
+                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                                        <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyCAb1UA5bvaHAPMhM-B1jAGeh0z5AiD27g" type="text/javascript"></script>
 
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Faites votre devis rapidement en 2 click !</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                </button>
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Faites votre devis rapidement en 2 cliques !</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form method="POST" action="getMiles">
+                                                            @csrf
+                                                            <div class="form-group">
+                                                                <label>Adresse de départ:</label>
+                                                                <input class="form-control" id="from_places" required style="z-index:-1">
+                                                                <input id="origin" name="origin" type="hidden" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Adresse d'arrivée:</label>
+                                                                <input class="form-control" id="to_places" required style="z-index:-1" />
+                                                                <input id="destination" name="destination" required="" type="hidden" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="start">Date du déménagement:</label>
+
+                                                                <input type="date" name="startDate" required class="form-control datepicker" id="startDate" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" max="2023-01-01">
+                                                               
+                                                            </div>
+                                                            <span>Heure de départ: </span>
+                                                            <div class="form-group">
+
+
+                                                                <select name="starTime" required id="starTime">
+                                                                    <option value="08:00">08:00</option>
+                                                                    <option value="09:00">09:00</option>
+                                                                    <option value="10:00">10:00</option>
+                                                                    <option value="11:00">11:00</option>
+                                                                    <option value="12:00">12:00</option>
+                                                                    <option value="13:00">13:00</option>
+                                                                    <option value="14:00">14:00</option>
+                                                                    <option value="15:00">15:00</option>
+                                                                    <option value="16:00">16:00</option>
+                                                                    <option value="17:00">17:00</option>
+                                                                    <option value="18:00">18:00</option>
+                                                                </select>
+                                                            </div>
+                                                            <br></br>
+
+                                                           
+                                                            <div class="form-group">
+                                                                <h5 for="packs_id">Selectionnée votre packs de prix</h5>
+                                                                
+                                                                <select name="packs_id" id="packs_id">
+                                                                    <option value="1">Economique</option>
+                                                                    <option value="2">Standard</option>
+                                                                    <option value="3">V.I.P</option>
+                                                                </select>
+                                                            </div>
+                                                            <a href="{{ route('packs') }}"><small><p  class="text-primary sm">Nos packs?</small></p></a>
+                                                            <div class="modal-footer">
+                                                                
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Mon devis!</button>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
                                             </div>
-                                            <div class="modal-body">
-                                                <form method="POST" action="getMiles">
-                                                @csrf
-                                                    <div class="form-group">
-                                                        <label>Adresse de départ:</label>
-                                                        <input class="form-control" id="from_places" style="z-index:-1">
-                                                        <input id="origin" name="origin" required="" type="hidden" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">Adresse d'arrivée:</label>
-                                                        <input class="form-control" id="to_places" style="z-index:-1" />
-                                                        <input id="destination" name="destination" required="" type="hidden" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <h5 for="packs_id">Selectionnée votre packs de prix</h5>
-                                                        <select class="form-control" name="packs_id" id="packs_id">
-                                                            <option value="1">Economique</option>
-                                                            <option value="2">Standard</option>
-                                                            <option value="3">V.I.P</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Mon devis!</button>
-                                                </form>
-                                            </div>
-
                                         </div>
                                     </div>
+
+
+
+                                    <!-- fin du Modal -->
+                                    <script>
+                                        $(function() {
+                                            // add input listeners
+                                            google.maps.event.addDomListener(window, 'load', function() {
+                                                var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
+                                                var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
+
+                                                google.maps.event.addListener(from_places, 'place_changed', function() {
+                                                    var from_place = from_places.getPlace();
+                                                    var from_address = from_place.formatted_address;
+                                                    $('#origin').val(from_address);
+                                                });
+
+                                                google.maps.event.addListener(to_places, 'place_changed', function() {
+                                                    var to_place = to_places.getPlace();
+                                                    var to_address = to_place.formatted_address;
+                                                    $('#destination').val(to_address);
+                                                });
+
+                                            });
+
+                                        });
+                                    </script>
+                                    <style>
+                                        .modal-backdrop {
+                                            z-index: -1;
+
+                                        }
+                                    </style>
+                                    @endguest
                                 </div>
                             </div>
-                          
-
-
-                            <!-- fin du Modal -->
-                            <script>
-                                $(function() {
-                                    // add input listeners
-                                    google.maps.event.addDomListener(window, 'load', function() {
-                                        var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
-                                        var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
-
-                                        google.maps.event.addListener(from_places, 'place_changed', function() {
-                                            var from_place = from_places.getPlace();
-                                            var from_address = from_place.formatted_address;
-                                            $('#origin').val(from_address);
-                                        });
-
-                                        google.maps.event.addListener(to_places, 'place_changed', function() {
-                                            var to_place = to_places.getPlace();
-                                            var to_address = to_place.formatted_address;
-                                            $('#destination').val(to_address);
-                                        });
-
-                                    });
-
-                                });
-                            </script>
-                            <style>
-                        
-                                .modal-backdrop {
-                                    z-index: -1;
-
-                                }
-                                
-                            </style>
-                                        @endguest
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Header End -->
     </header>
     
     <div class="jumbotron text-center">
   <h1 class="display-3">Merci!</h1>
-  <p class="lead"><strong>Votre devis en ligne à bien été payé !</strong></p>
-  <strong>La réservation à bien été enregistrée</strong></p>
-  <strong>Un mail de confirmation vous seras envoyées</strong></p>
-  <p> Merci pour votre confiance !</p>
+  <p class="lead"><strong>Votre devis en ligne à bien été effectué!</strong>Payer & consulter !</p>
   <hr>
   <p>
      Des questions?<a href="{{ route('contact') }}" class="text-primary">Contactez-nous</a>
@@ -221,8 +247,8 @@
 </div>
         
     <footer>
-      <!--? Footer Start-->
-      <div class="footer-area footer-bg">
+       <!--? Footer Start-->
+       <div class="footer-area footer-bg">
             <div class="container">
                 <div class="footer-top footer-padding">
                     <!-- footer Heading -->

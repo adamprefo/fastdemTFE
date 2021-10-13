@@ -14,7 +14,7 @@
     @endforeach
 
     <!-- Favicon -->
-    <link rel="icon" href="/img/camion.jpg" type="image/x-icon" />
+    <img src="{{URL::asset('assets/img/logo/logoback.png')}}">
 
 
 </head>
@@ -35,7 +35,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="/img/logo.png" alt="Company logo" style="width: 100%; max-width: 200px" />
+                            <img src="{{URL::asset('assets/img/logo/logoback.png')}}">
                             </td>
 
                             <td>

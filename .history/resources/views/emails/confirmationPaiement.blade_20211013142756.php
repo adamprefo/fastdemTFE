@@ -14,16 +14,16 @@
     @endforeach
 
     <!-- Favicon -->
-    <link rel="icon" href="/img/camion.jpg" type="image/x-icon" />
+    <img src="{{URL::asset('assets/img/logo/logoback.png')}}">
 
 
 </head>
 
 <body>
 
-<h5>Bonjour<span style="font-weight:bolder">{{$user->name}} {{$user->lastname}}</span></h5> , Nous confirmons que nous avons bien reçu votre paiement sécurisé en ligne. 
-Voici une copie détaillée de votre facture.
-   Merci de faire confiance à <span style="font-weight:bolder"> Fastdem. </span>
+<h4>Bonjour <span style="font-weight:bolder">{{$user->name}} {{$user->lastname}}</span>,</h4>  Nous confirmons que nous avons bien reçu votre paiement sécurisé en ligne. 
+<h4>Voici une copie détaillée de votre facture.</h4>
+<h5> Merci de faire confiance à <span style="font-weight:bolder"> Fastdem. </span></h5>
 
     <h1>Votre devis complet</h1>
 

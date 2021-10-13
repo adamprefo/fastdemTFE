@@ -209,7 +209,6 @@
   <h1 class="display-3">Merci!</h1>
   <p class="lead"><strong>Votre devis en ligne à bien été payé !</strong></p>
   <strong>La réservation à bien été enregistrée</strong></p>
-  <strong>Un mail de confirmation vous seras envoyées</strong></p>
   <p> Merci pour votre confiance !</p>
   <hr>
   <p>
